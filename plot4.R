@@ -2,6 +2,12 @@ library(lubridate)
 
 setwd("C:/Users/Daniel/Documents/R/Dateien Coursera/explData")
 
+# retrieve current locale
+# Sys.getlocale("LC_TIME") 
+
+# change to english locale (on Windows)
+Sys.setlocale("LC_TIME", "English")
+
 ################## 1. Read and transform dataset ####################
 dataSet <- read.csv2("./household_power_consumption.txt", 
                      stringsAsFactors = F, na.strings = "?")
@@ -48,3 +54,6 @@ with(subSet, {
 
 dev.copy(png, file = "plot4.png")
 dev.off()
+
+# change back to German locale (on Windows)
+Sys.setlocale("LC_TIME", "German")
